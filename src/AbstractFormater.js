@@ -1,7 +1,6 @@
 export default class AbstractFormater {
-
-  output (cities) {
+  // Este método deve ser implementado em subclasses.
+  output(cities) {
     throw new Error('Should implement output method...');
   }
-
-}
+}  

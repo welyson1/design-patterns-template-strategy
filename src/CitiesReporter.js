@@ -1,27 +1,19 @@
-import fs from 'node:fs';
+import AbstractLoader from './AbstractLoader.js'; 
+import AbstractFormater from './AbstractFormater.js';
 
+// Classe que representa um relatório de cidades
 export default class CitiesReporter {
-  constructor ({ formaterStrategy }) {
-    this._formaterStrategy = formaterStrategy;
+  constructor(loader, formater) {
+    // Inicializa o loader e o formater com os valores passados como argumentos
+    this._loader = loader;
+    this._formater = formater;
   }
 
-  _read (filename) {
-    this._cities_json = fs.readFileSync(filename);
+  // Método para gerar um relatório com base em um arquivo
+  report(filename) {
+    // Carrega os dados do arquivo usando o loader
+    const cities = this._loader.load(filename);
+    // Formata e retorna os dados das cidades usando o formater
+    return this._formater.output(cities);
   }
-
-  _parseJSON () {
-    this._cities = JSON.parse(this._cities_json);
-  }
-
-  report (filename) {
-    this._read(filename);
-    this._parseJSON();
-    return this._formaterStrategy.output(this._cities);
-  }
-
 }
-
-
-
-
-

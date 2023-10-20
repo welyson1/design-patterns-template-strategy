@@ -6,8 +6,12 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "startHTML": "node index.js html",
+    "startTXT": "node index.js txt"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "node": "^20.7.0"
+  }
 }

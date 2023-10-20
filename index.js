@@ -1,25 +1,21 @@
-import sys from 'node:sys';
+import CitiesReporterFactory from './src/CitiesReporterFactory.js';
 
-import FormaterHTML from './src/FormaterHTML.js';
-import FormaterTXT from './src/FormaterTXT.js';
-import CitiesReporter from './src/CitiesReporter.js';
+const [cmd, script, param1] = process.argv;
+const filename = './data/cidades-2.json';
 
-const [cmd, script, param1] = process.argv,
-      filename = './data/cidades-2.json';
+const reporterFactory = CitiesReporterFactory.getInstance(); // Use o método estático getInstance
 
-const formaterStrategies = {
-  'html': new FormaterHTML(),
-  'txt': new FormaterTXT()
-};
-
-let reporter = new CitiesReporter({
-      formaterStrategy: formaterStrategies[param1]
-    }),
-    output = reporter.report(filename);
+// Crie uma instância do CitiesReporter com o formato desejado (param1) usando a fábrica.
+const reporter = reporterFactory.createReporter(param1);
+const output = reporter.report(filename);
 
 console.log(output);
 
+// Testar Singleton
+const factory1 = CitiesReporterFactory.getInstance(); // Use o método estático getInstance
+const factory2 = CitiesReporterFactory.getInstance();
 
+console.log(factory1 === factory2); // Deve retornar true, pois são a mesma instância da fábrica
 
 
 
