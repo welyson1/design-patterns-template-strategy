@@ -80,4 +80,4 @@ classDiagram
 
 # Estudantes
 - Welyson 🤡
-- Gabriel *Não fez poha nenhuma pq estava no latinoware, vulgo fazendo compras no Paraguay, acompanhada pelo direitíssimo diretório acadêmico, cuja integridade é tão transparente quanto o ar de São Paulo e acobertado por professores, com seus salários de magnatas/principescos, não poderiam se importar menos, afinal, quem tem tempo para preocupações mundanas quando se ganha 22 mil reais por mês? Além disso, financiado pela agencia de turismo governo do brasil💸
+- Gabriel 
